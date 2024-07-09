@@ -4,158 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anemia Sense - Prediction Result</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #e74c3c;
-            --text-color: #2c3e50;
-            --background-color: #ecf0f1;
-        }
-
         body {
-            background-color: var(--background-color);
-            padding-top: 70px;
             font-family: 'Inter', sans-serif;
-        }
-
-        .navbar {
-            background-color: #343a40;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-brand {
-            color: #ffffff;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .navbar-nav .nav-link {
-            color: #ffffff;
-            font-size: 1.1rem;
-            margin-right: 15px;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: var(--primary-color);
-        }
-
-        .result-container {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-            background-color: #fff;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .result-title {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: var(--primary-color);
-        }
-
-        .result {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--secondary-color);
-            margin-bottom: 30px;
-        }
-
-        .btn-retake {
-            margin-top: 30px;
-            padding: 12px 40px;
-            font-size: 1.1rem;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-
-        .btn-retake:hover {
-            background-color: #2980b9;
-            border-color: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(41, 128, 185, 0.4);
-        }
-
-        .blood-cell {
-            width: 20px;
-            height: 20px;
-            background-color: var(--secondary-color);
-            border-radius: 50%;
-            position: absolute;
-            opacity: 0.7;
-            animation: float 6s ease-in-out infinite;
+            background-color: #f8f9fa;
+            color: #333;
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        }
+        .navbar-brand {
+            font-weight: 600;
+            color: #3498db;
+        }
+        .result-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,.05);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .result-header {
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        .result-description {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-top: 1rem;
+        }
+        .btn-primary {
+            background-color: #3498db;
+            border-color: #3498db;
+        }
+        .btn-primary:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand animate__animated animate__fadeInLeft" href="#">Anemia Sense</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="/">Anemia Sense</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav animate__animated animate__fadeInRight">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/#details">Details</a>
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- Main content -->
+
     <div class="container">
-        <div class="result-container mt-5 animate__animated animate__fadeInUp">
-            <h2 class="result-title">Prediction Result</h2>
-            <p class="result animate__animated animate__pulse animate__infinite">{{ prediction_text }}</p>
-            <a href="/" class="btn btn-primary btn-lg btn-retake animate__animated animate__bounceIn animate__delay-1s">Retake Test</a>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="result-container text-center">
+                    <h2 class="result-header">Anemia Prediction Result</h2>
+                    <div class="result-value">{{ prediction_text }}</div>
+                    <p class="result-description">
+                        {% if "don't have any Anemic Disease" in prediction_text %}
+                        Based on the provided information, our model predicts that you are not anemic. However, if you have any concerns, it's always best to consult with a healthcare professional.
+                        {% elif "have Anemic Disease" in prediction_text %}
+                        Based on the provided information, our model predicts that you may be anemic. We recommend consulting with a healthcare professional for further evaluation and advice.
+                        {% else %}
+                        An unexpected result was returned. Please try again or contact support if this issue persists.
+                        {% endif %}
+                    </p>
+                    <a href="/" class="btn btn-primary mt-3">Make Another Prediction</a>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- Blood cell animation container -->
-    <div id="blood-cell-animation"></div>
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
-    </script>
-    <script>
-        // Blood cell animation
-        function createBloodCell() {
-            const bloodCell = document.createElement('div');
-            bloodCell.classList.add('blood-cell');
-            bloodCell.style.left = Math.random() * window.innerWidth + 'px';
-            bloodCell.style.top = Math.random() * window.innerHeight + 'px';
-            bloodCell.style.animationDuration = (Math.random() * 4 + 4) + 's';
-            document.getElementById('blood-cell-animation').appendChild(bloodCell);
 
-            setTimeout(() => {
-                bloodCell.remove();
-            }, 8000);
-        }
-
-        setInterval(createBloodCell, 1000);
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
