@@ -32,7 +32,46 @@
       --text-color: #2c3e50;
       --background-color: #ecf0f1;
     }
+    .hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  margin-top: 0; /* Ensure no default margin top */
+}
 
+@media (max-width: 768px) {
+  .hero h1 {
+    margin-top: 20px; /* Adjust this margin as needed */
+  }
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.btn-get-started {
+  font-size: 1.1rem;
+  padding: 15px 40px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+}
+
+.btn-get-started:hover {
+  background-color: #2980b9;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(41, 128, 185, 0.4);
+}
+
+.hero-img {
+  max-width: 80%;
+  margin-top: 50px; /* Adjust top margin for the image */
+}
+
+          
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--background-color);
@@ -241,11 +280,10 @@
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#details">Details</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-      <a class="btn-getstarted" href="/predict">Predict</a>
+      <a class="btn-getstarted" href="#details">Predict</a>
     </div>
   </header>
 
@@ -259,15 +297,15 @@
       <div class="container text-center">
         <div class="d-flex flex-column justify-content-center align-items-center">
           <h1 data-aos="fade-up" class="animate__animated animate__fadeInDown">Welcome to <span class="text-primary">Anemia Sense</span></h1>
-          <p data-aos="fade-up" data-aos-delay="100" class="animate__animated animate__fadeInUp animate__delay-1s">Early detection of anemia through advanced AI</p>
+          <p data-aos="" data-aos-delay="100" class="animate__animated animate__fadeInUp animate__delay-1s">Early detection of anemia through advanced AI</p>
           <div data-aos="fade-up" data-aos-delay="200">
             <a href="#details" class="btn-get-started animate__animated animate__bounceIn animate__delay-2s">Predict with details</a>
           </div>
           <img src="{{ url_for('static', filename='img/hero-services-img.webp') }}" class="img-fluid hero-img animate__animated animate__zoomIn animate__delay-3s" alt="" data-aos="zoom-out" data-aos-delay="300">
         </div>
       </div>
-    </section><!-- /Hero Section -->
-
+    </section>
+    
   <!-- About Section -->
 <section id="about" class="about-section py-5">
   <div class="container">
